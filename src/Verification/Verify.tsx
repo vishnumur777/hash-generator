@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ReactElement, useState } from "react";
 import "./verifi.css";
 import Note from "./Note";
 import Checker from "./Checker";
@@ -7,7 +7,7 @@ function Verify() {
   const [ap, setAp] = useState("");
   const [bp, setBp] = useState("");
   const [opt, setOpt] = useState("SHA256");
-  const [fin, setFin] = useState(null);
+  const [fin, setFin] = useState<ReactElement | undefined>();
   const handleOpt = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setOpt(event.target.value);
   };
@@ -49,9 +49,6 @@ function Verify() {
           {fin}
         </div>
       </div>
-      {console.log(ap)}
-      {console.log(bp)}
-      {console.log(opt)}
     </>
   );
 }

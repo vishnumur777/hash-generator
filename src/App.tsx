@@ -1,5 +1,5 @@
 import * as CryptoJS from "crypto-js";
-import { useState } from "react";
+import { ReactElement, useState } from "react";
 import "./App.css";
 import { useNavigate } from "react-router-dom";
 
@@ -80,7 +80,7 @@ const genHashValue = (string: string) => {
 
 function App() {
   const [ip, getIp] = useState("");
-  const [st, setSt] = useState("");
+  const [st, setSt] = useState<ReactElement | undefined>();
   const n = Note();
   const navi = useNavigate();
   const handleNabout = () => {
@@ -90,7 +90,8 @@ function App() {
     navi("/verify");
   };
   const handleChange = () => {
-    setSt(genHashValue(ip));
+    const gh = genHashValue(ip);
+    setSt(gh);
   };
   return (
     <div className="fully">
