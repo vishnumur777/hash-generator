@@ -38,8 +38,12 @@ const genHashValue = (string: string) => {
   const sha256string = sha256Hashing(strname);
   const md5string = md5Hashing(strname);
   const handleClickCp1 = () => {
-    navigator.clipboard.writeText(sha256string);
-    alert("Copied to Clipboard!");
+    navigator.clipboard.writeText(sha256string).then(() => {
+        alert("successfully copied");
+      })
+      .catch(() => {
+        alert("something went wrong");
+      });
   };
   const handleClickCp2 = () => {
     navigator.clipboard.writeText(md5string);
