@@ -99,6 +99,7 @@ function App() {
   };
   return (
     <div className="fully">
+      <h2>Varun Murali</h2>
       <h1 className="heading">Hash Generator</h1>
       <div className="d-flex flex-column m-5">
         <input
